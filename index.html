@@ -17,18 +17,41 @@
     :root { color-scheme: light; --linen: #FAF5EF; --forest: #1B3A2F; }
     * { box-sizing: border-box; }
     body { margin: 0; background: var(--linen); color: var(--forest); font-family: Inter, sans-serif; -webkit-font-smoothing: antialiased; }
-    main { width: min(100%, 488px); min-height: 100svh; margin: auto; padding: 64px 24px 36px; display: flex; flex-direction: column; justify-content: center; }
-    header { text-align: center; margin-bottom: 44px; }
-    .signature { font-family: Caveat, cursive; font-size: 76px; font-weight: 700; line-height: 1; margin-bottom: 24px; }
+    main { width: min(100%, 520px); min-height: 100svh; margin: auto; padding: 40px 24px 28px; display: flex; flex-direction: column; justify-content: center; }
+    header { text-align: center; margin-bottom: 30px; }
+    .signature { font-family: Caveat, cursive; font-size: 64px; font-weight: 700; line-height: 1; margin-bottom: 16px; }
     h1 { margin: 0; font-size: clamp(20px, 5vw, 23px); font-weight: 500; letter-spacing: -.7px; line-height: 1.4; }
-    nav { display: grid; gap: 13px; }
-    a { display: flex; align-items: center; justify-content: space-between; min-height: 70px; padding: 20px 23px; border: 1px solid #1b3a2f40; border-radius: 5px; color: inherit; text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: -.15px; transition: background .18s ease, border-color .18s ease, transform .18s ease; }
-    a:first-child { background: var(--forest); color: var(--linen); border-color: var(--forest); }
-    a:hover { background: #1b3a2f08; border-color: var(--forest); transform: translateY(-2px); }
-    a:first-child:hover { background: #284e3e; }
+    nav { display: grid; gap: 14px; }
+    a { position: relative; isolation: isolate; overflow: hidden; display: flex; align-items: center; justify-content: space-between; min-height: 108px; padding: 22px 24px; border-radius: 5px; color: #fffaf3; text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
+    a:hover { transform: translateY(-2px); box-shadow: 0 7px 20px #1b3a2f18; }
     a:focus-visible { outline: 2px solid var(--forest); outline-offset: 5px; }
-    svg { width: 18px; height: 18px; flex-shrink: 0; margin-left: 18px; stroke: currentColor; fill: none; stroke-width: 1.4; }
-    footer { margin-top: 42px; text-align: center; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; opacity: .6; }
+    .copy { position: relative; z-index: 2; display: grid; gap: 7px; }
+    .title { font-size: 17px; font-weight: 500; letter-spacing: -.4px; line-height: 1.2; }
+    .eyebrow { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; opacity: .85; }
+    .arrow { z-index: 2; width: 18px; height: 18px; flex-shrink: 0; margin-left: 12px; stroke: currentColor; fill: none; stroke-width: 1.4; }
+    .photo { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .portfolio { background: #324b43; }
+    .portfolio .photo { object-position: 50% 47%; filter: saturate(.65); }
+    .portfolio::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg,#102c26b8,#102c2633); }
+    .portfolio .title { font-family: Caveat,cursive; font-weight: 700; font-size: 30px; letter-spacing: -.6px; }
+    .band { background: #17101e; }
+    .band .title { font-family: Georgia,serif; font-style: italic; font-weight: 700; font-size: 35px; letter-spacing: -1.5px; }
+    .waves { position: absolute; z-index: -1; right: -6%; top: -30%; width: 78%; height: 170%; fill: none; stroke: #a57bcd; stroke-width: .8; opacity: .65; }
+    .studio { background: #141414; }
+    .studio .title { font-size: 27px; font-weight: 600; letter-spacing: -1.5px; }
+    .studio .copy { padding-left: 10px; }
+    .studio::before { content: ''; position: absolute; inset: 12px; border: 1px solid #ffffff24; pointer-events: none; }
+    .studio .frame { position: absolute; right: 55px; top: 24px; width: 52px; height: 60px; border: solid #ffffff30; border-width: 1px 0; transform: rotate(-8deg); }
+    .studio .frame::before { content: ''; position: absolute; inset: 7px -6px; border: solid #ffffff30; border-width: 0 1px; }
+    .youtube { background: #232622; }
+    .film { position: absolute; inset: 0; z-index: -2; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; }
+    .film img { width: 100%; height: 108px; object-fit: cover; object-position: 50% 45%; filter: saturate(.65); }
+    .youtube::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg,#111b19dc,#111b193b); }
+    .youtube .title { font-size: 22px; letter-spacing: -.8px; }
+    .play { width: 26px; height: 26px; border: 1px solid #fff8; border-radius: 50%; display: grid; place-items: center; margin-bottom: 2px; }
+    .play::before { content: ''; margin-left: 2px; border-left: 6px solid #fff; border-top: 4px solid transparent; border-bottom: 4px solid transparent; }
+    .youtube .copy { gap: 5px; }
+    footer { margin-top: 28px; text-align: center; font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; opacity: .6; }
     @media (max-width: 360px) { main { padding-inline: 20px; } a { padding-inline: 18px; } }
     @media (max-height: 650px) { main { padding-top: 32px; padding-bottom: 28px; } header { margin-bottom: 28px; } .signature { font-size: 64px; margin-bottom: 16px; } footer { margin-top: 28px; } }
     @media (prefers-reduced-motion: reduce) { a { transition: none; } a:hover { transform: none; } }
@@ -41,10 +64,21 @@
       <h1>José Chevallier Boutell</h1>
     </header>
     <nav aria-label="Mis links">
-      <a href="https://josechevallierboutell.vercel.app/" target="_blank" rel="noopener noreferrer"><span>Portfolio Audiovisual</span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
-      <a href="https://www.instagram.com/altervu_/" target="_blank" rel="noopener noreferrer"><span>AlterVu</span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
-      <a href="https://www.instagram.com/keepit.ba/" target="_blank" rel="noopener noreferrer"><span>Productora Audiovisual</span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
-      <a href="https://www.youtube.com/@josechevallier4712/videos" target="_blank" rel="noopener noreferrer"><span>Canal de YouTube</span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
+      <a class="portfolio" href="https://josechevallierboutell.vercel.app/" target="_blank" rel="noopener noreferrer">
+        <img class="photo" src="https://res.cloudinary.com/uucaegfk/image/upload/f_auto,q_80,w_1800/jcb/site/index-01" alt="" fetchpriority="high">
+        <span class="copy"><span class="eyebrow">Fotografía · Video</span><span class="title">Portfolio Audiovisual</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></svg>
+      </a>
+      <a class="band" href="https://www.instagram.com/altervu_/" target="_blank" rel="noopener noreferrer">
+        <svg class="waves" aria-hidden="true" viewBox="0 0 340 180" preserveAspectRatio="none"><path d="M-20 30C90 170 130-50 360 40M-20 35C90 175 130-45 360 45M-20 40C90 180 130-40 360 50M-20 45C90 185 130-35 360 55M-20 50C90 190 130-30 360 60M-20 85C150-65 140 230 360 95M-20 90C150-60 140 235 360 100M-20 95C150-55 140 240 360 105M-20 100C150-50 140 245 360 110M-20 105C150-45 140 250 360 115"/></svg>
+        <span class="copy"><span class="title">Alter Vú</span><span class="eyebrow">Música · En vivo</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></svg>
+      </a>
+      <a class="studio" href="https://www.instagram.com/keepit.ba/" target="_blank" rel="noopener noreferrer">
+        <span class="frame" aria-hidden="true"></span><span class="copy"><span class="title">keep it simple.</span><span class="eyebrow">Productora Audiovisual</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></svg>
+      </a>
+      <a class="youtube" href="https://www.youtube.com/@josechevallier4712/videos" target="_blank" rel="noopener noreferrer">
+        <span class="film" aria-hidden="true"><img src="https://res.cloudinary.com/uucaegfk/image/upload/f_auto,q_72,w_600/jcb/naturaleza/01" alt=""><img src="https://res.cloudinary.com/uucaegfk/image/upload/f_auto,q_72,w_600/jcb/festival/01" alt=""><img src="https://res.cloudinary.com/uucaegfk/image/upload/f_auto,q_72,w_600/jcb/noche/01" alt=""></span>
+        <span class="copy"><span class="play" aria-hidden="true"></span><span class="title">Canal de YouTube</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></svg>
+      </a>
     </nav>
     <footer>Buenos Aires, Argentina</footer>
   </main>
